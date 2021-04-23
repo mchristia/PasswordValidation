@@ -1,6 +1,8 @@
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 
+import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class PasswordValidationTest {
@@ -20,5 +22,12 @@ public class PasswordValidationTest {
     @CsvSource ({"Bunny88, true", "withoutnumber, false" , "Mr4lf4, true", "4Mr, true", "2, false", "A, false"})
     public void checkForLowerUpperCase(String password, boolean hasLowerUpperLetter){
         assertEquals(hasLowerUpperLetter, PasswordValidation.checkForLowerUpperLetter(password));
+    }
+
+    @Test
+    public void checkPasswords(){
+        String[] passwords = {"Haus4", "fu3nd", "47uwfh", "AEFef34", "f", "LAL4"};
+        boolean[] results = {true, false, false, true, false, false};
+        assertArrayEquals(results, PasswordValidation.passwordChecker(passwords));
     }
 }
