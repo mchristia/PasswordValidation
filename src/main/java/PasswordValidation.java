@@ -1,10 +1,29 @@
 public class PasswordValidation {
     public static void main(String[] args) {
         String password = "buNny88";
-//        System.out.println(checkPasswordLength(password, 3));
-//        System.out.println(checkForNumber(password));
+        String[] passwordArray = {"Haus4", "fu3nd", "47uwfh", "AEFef34", "f", "LAL4"};
         System.out.println(checkForLowerUpperLetter(password));
+        passwordChecker(passwordArray);
     }
+    public static boolean[] passwordChecker(String[] passwords){
+        boolean[] passwordsChecked = new boolean[passwords.length];
+        for(int i = 0; i< passwords.length; i++){
+            boolean pwLength = checkPasswordLength(passwords[i], 5);
+            boolean pwNumbers = checkForNumber(passwords[i]);
+            boolean pwLetters = checkForLowerUpperLetter(passwords[i]);
+
+            if (pwLength && pwNumbers && pwLetters){
+                passwordsChecked[i] = true;
+            } else {
+                passwordsChecked[i] = false;
+            }
+            System.out.println(passwordsChecked[i]);
+        }
+        return passwordsChecked;
+    }
+
+
+
     public static boolean checkPasswordLength(String password, int passMinLength){
 
         int minPasswordLength;
@@ -21,7 +40,6 @@ public class PasswordValidation {
     }
 
     public static boolean checkForLowerUpperLetter(String password) {
-//        return password.matches("(?=.*[a-z])(?=.*[A-Z])");   //"(.*[a-z].*)(.*[A-Z].*)");
         String regex1 = ".*[a-z].*";
         String regex2 = ".*[A-Z].*";
 

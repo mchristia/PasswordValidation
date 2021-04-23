@@ -1,4 +1,3 @@
-import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 
@@ -22,9 +21,4 @@ public class PasswordValidationTest {
     public void checkForLowerUpperCase(String password, boolean hasLowerUpperLetter){
         assertEquals(hasLowerUpperLetter, PasswordValidation.checkForLowerUpperLetter(password));
     }
-
-//    @Test
-//    public void checkForLowerUpperCase(){
-//        assertEquals(true, PasswordValidation.checkForLowerUpperLetter("Bunny"));
-//    }
 }
