@@ -1,4 +1,3 @@
-import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 
@@ -12,7 +11,7 @@ public class PasswordValidationTest {
     }
 
     @ParameterizedTest(name= "pass {0} should return if number exists {1}")
-    @CsvSource ({"Bunny88, true", "WithoutNumber, false" , "Mr4lf4, true", "2, true"})
+    @CsvSource ({"Bunny88, true", "WithoutNumber, false" , "Mr4lf4, true", "4Mr, true", "2, true"})
     public void checkForNumbers(String password, boolean hasNumber){
         assertEquals(hasNumber, PasswordValidation.checkForNumber(password));
     }
