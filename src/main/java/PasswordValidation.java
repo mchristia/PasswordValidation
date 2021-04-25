@@ -36,7 +36,7 @@ public class PasswordValidation {
     }
 
     public static boolean checkForNumber(String password) {
-        return password.matches(".*[0-9].*");
+        return password.matches(".*\\d.*");
     }
 
     public static boolean checkForLowerUpperLetter(String password) {
